@@ -12,7 +12,7 @@ const menus = [
     desc: "Shawarma jumbo dengan daging ayam / sapi pilihan, saus spesial, sayuran segar.",
     price: "45K",
     badge: "Terlaris",
-    image: "/images/menu-shawarma.jpg",
+    image: "/images/menu-shawarma.png",
     emoji: "🌯",
   },
   {
@@ -21,7 +21,7 @@ const menus = [
     desc: "Shawarma ukuran reguler dengan rempah khas Timur Tengah yang autentik.",
     price: "40K",
     badge: null,
-    image: "/images/menu-daddy.jpg",
+    image: "/images/potato.png",
     emoji: "🥙",
   },
   {
@@ -30,7 +30,7 @@ const menus = [
     desc: "Daging shawarma di atas nasi hangat dengan saus garlic spesial.",
     price: "30K",
     badge: "Favorit",
-    image: "/images/menu-ricebowl.jpg",
+    image: "/images/ricebowl.jpg",
     emoji: "🍚",
   },
   {
@@ -39,7 +39,7 @@ const menus = [
     desc: "Burger daging sapi dengan keju melt, selada segar, dan saus special.",
     price: "45K",
     badge: null,
-    image: "/images/menu-burger.jpg",
+    image: "/images/burgercheese.jpg",
     emoji: "🍔",
   },
 ];
@@ -60,6 +60,7 @@ export default function Menu() {
   return (
     <section id="menu" className="py-24 bg-charcoal" ref={ref}>
       <div className="max-w-7xl mx-auto px-6">
+        
         {/* Header */}
         <motion.div
           initial={{ opacity: 0, y: 30 }}
@@ -70,11 +71,14 @@ export default function Menu() {
           <p className="text-gold text-xs tracking-[0.3em] font-medium mb-3 font-poppins uppercase">
             APA YANG KAMI SAJIKAN
           </p>
-          <h2 className="text-white font-oswald font-bold leading-tight"
+
+          <h2
+            className="text-white font-oswald font-bold leading-tight"
             style={{ fontSize: "clamp(2rem, 5vw, 3.5rem)" }}
           >
             MENU <span className="text-crimson">FAVORIT</span> PELANGGAN
           </h2>
+
           <div className="w-16 h-1.5 bg-crimson mx-auto mt-6 rounded-full" />
         </motion.div>
 
@@ -89,45 +93,56 @@ export default function Menu() {
               animate={inView ? "visible" : "hidden"}
               className="group relative bg-[#242424] rounded-xl overflow-hidden border border-white/5 hover:border-crimson/50 transition-all duration-500 hover:-translate-y-2 hover:shadow-2xl hover:shadow-crimson/20"
             >
+              
               {/* Image */}
               <div className="relative h-56 bg-[#2E2E2E] overflow-hidden">
-                <div className="absolute inset-0 flex items-center justify-center text-7xl group-hover:scale-110 transition-transform duration-700 opacity-20">
+
+                {/* Emoji Background */}
+                <div className="absolute inset-0 flex items-center justify-center text-7xl opacity-10 group-hover:scale-110 transition-transform duration-700">
                   {item.emoji}
                 </div>
 
-                {/* Real image */}
+                {/* Real Image */}
                 <Image
-                  src={item.id === 1 ? "/images/menu-shawarma.png" : item.image}
+                  src={item.image}
                   alt={item.name}
                   fill
-                  className={`object-cover group-hover:scale-110 transition-transform duration-700 ${item.id !== 1 ? 'opacity-0' : 'opacity-100'}`}
+                  className="object-cover group-hover:scale-110 transition-transform duration-700"
                 />
 
+                {/* Badge */}
                 {item.badge && (
                   <span className="absolute top-4 left-4 bg-crimson text-white text-[10px] font-bold px-3 py-1 rounded-full tracking-wider uppercase z-10 shadow-lg">
                     {item.badge}
                   </span>
                 )}
+
                 <div className="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-500" />
               </div>
 
               {/* Content */}
               <div className="p-6">
+
+                {/* Rating */}
                 <div className="flex items-center gap-1 mb-2">
                   {[...Array(5)].map((_, i) => (
                     <Star key={i} size={12} fill="#C9A84C" color="#C9A84C" />
                   ))}
                 </div>
+
                 <h3 className="text-white font-oswald font-bold text-xl mb-2 tracking-wide group-hover:text-gold transition-colors">
                   {item.name}
                 </h3>
+
                 <p className="text-white/70 text-sm leading-relaxed mb-6 font-poppins min-h-[3rem]">
                   {item.desc}
                 </p>
+
                 <div className="flex items-center justify-between border-t border-white/5 pt-4">
                   <span className="text-gold font-oswald font-bold text-2xl">
                     Rp {item.price}
                   </span>
+
                   <a
                     href="https://wa.me/6281234567890"
                     target="_blank"
@@ -137,6 +152,7 @@ export default function Menu() {
                     <ArrowRight size={18} color="white" />
                   </a>
                 </div>
+
               </div>
             </motion.div>
           ))}
@@ -159,6 +175,7 @@ export default function Menu() {
             <ArrowRight size={18} />
           </a>
         </motion.div>
+
       </div>
     </section>
   );

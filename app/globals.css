@@ -25,11 +25,11 @@
   }
 
   body {
-    font-family: var(--font-poppins), sans-serif;
-    background-color: var(--warm-white);
-    color: var(--charcoal);
-    overflow-x: hidden;
-  }
+  font-family: var(--font-poppins), sans-serif;
+  background-color: var(--color-warm-white);
+  color: var(--color-charcoal);
+  overflow-x: hidden;
+}
 
   h1, h2, h3, h4 {
     font-family: var(--font-oswald), sans-serif;
@@ -60,9 +60,9 @@
   width: 6px;
 }
 ::-webkit-scrollbar-track {
-  background: var(--cream);
+  background: var(--color-cream);
 }
 ::-webkit-scrollbar-thumb {
-  background: var(--crimson, #8B0000);
+  background: var(--color-crimson, #8B0000);
   border-radius: 3px;
 }
